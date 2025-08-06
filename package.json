@@ -1,0 +1,24 @@
+{
+  "name": "wab_chart",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite --port 1005",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/chart.js": "^2.9.41",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.6"
+  },
+  "dependencies": {
+    "konva": "^9.3.22",
+    "luxon": "^3.7.1",
+    "vite-plugin-svgr": "^4.3.0",
+    "vite-svg-loader": "^5.1.0"
+  }
+}

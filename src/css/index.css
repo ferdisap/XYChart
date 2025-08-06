@@ -1,0 +1,31 @@
+@import './toolbar.css';
+@import './tooltip.css';
+@import './modal.css';
+@import './ui_wab_input.css';
+
+.wab button {
+  cursor: pointer;
+}
+
+.wab * {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wab-content {
+  position: relative;
+}
+
+.wab-version,
+.wab-owner {
+  position: absolute;
+  right: 20px;
+  font-style: italic;
+}
+
+.wab-version{
+  bottom: 20px;
+}
+.wab-owner{
+  bottom: 0px;
+  cursor: pointer;
+}

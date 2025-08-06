@@ -1,0 +1,32 @@
+import { formulaType } from "../Config";
+
+export function getFormulaFn(type:number) :Function | null{
+  switch (type) {
+    case formulaType.indexUnit_CN235: return formula_index_unit_cn_235;
+  }
+  return null
+}
+
+export function formula_mac_cn_235(cgarm:number):number{
+  // return const cgarm = ((mac / 100) * 2.604) + 9.5678;
+  return ((cgarm - 9.5678)/2.604)*100;
+}
+
+export function formula_index_unit_cn_235(mac: number, weight: number) :number{
+  // console.log(mac, weight)
+  // const indexUnit = weight * (((((mac * 2.604) / 100) + 9.5678) / weight) - 10.219)
+  const cgarm = ((mac / 100) * 2.604) + 9.5678;
+  const indexArm = cgarm - 10.219;
+  const indexUnit = indexArm * weight;
+  return indexUnit;
+}
+
+export function formula_max_cn_235(cgarm:number) :number{
+  return ((cgarm - 9.5678)/2.604)*100;
+}
+
+export function formula_cgarm_from_IndexUnit(indexUnit:number, weight:number){
+  const indexArm = indexUnit / weight;
+  const cgarm = indexArm + 10.219;
+  return cgarm
+}

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "allowImportingTsExtensions": true,
+    "include": ["next-env.d.ts", "additional.d.ts", "**/*.ts", "**/*.tsx", "./types/module-svg.d.ts", "./types/module-css.d.ts", "./types/module-wab.d.ts"],
+    "paths": {
+      "module-svg": ["./types/module-svg.d.ts", "./types/module-css.d.ts","./types/module-wab.d.ts"]
+    }
+  }
+}

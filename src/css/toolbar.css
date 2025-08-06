@@ -1,0 +1,32 @@
+.wab-toolbar {
+  width: 100%;
+  height: 25px;
+  display: flex;
+}
+
+.wab-toolbar-btn-container {
+  height: 25px; 
+  border: none;
+  /* border: 1px solid red !important; */
+  margin: 0 0.2rem 0 0;
+}
+
+button.wab-toolbar-btn-image {
+  height: 25px;
+}
+
+button > svg {
+  height: 20px;
+  width: 20px;
+}
+
+button.wab-toolbar-btn-image {
+  border: none;
+} 
+
+.wab-toolbar-btn-container:has( > button.modal-new-calc-btn), button.modal-new-calc-btn{
+  border-radius: 10px;
+  padding: 0 !important;
+  margin: 0 !important;
+  /* border: 1px solid red !important; */
+}

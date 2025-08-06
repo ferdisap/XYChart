@@ -1,0 +1,16 @@
+.wab-tooltipweb-trigger {
+  position: relative;
+}
+
+.wab-tooltipweb-target {
+  position: absolute;
+  top: 30px;
+  height: 25px;
+  z-index: 10;
+  border: none;
+  border-radius: 3px;
+  padding: 2px 5px 2px 5px;
+  background-color: rgb(236, 236, 236);
+  box-shadow: 3px 3px 3px grey;
+  text-wrap: nowrap;
+}

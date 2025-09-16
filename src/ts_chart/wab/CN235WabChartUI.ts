@@ -396,5 +396,4 @@ export function Create_CN235WabChartUI(parentDiv: HTMLElement) {
   
   const wabchart = new CN235WabChartUI(mainContainer as HTMLDivElement);
   wabchart.Init();
-  top.wa = wabchart;
 }

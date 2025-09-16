@@ -317,5 +317,4 @@ export function Create_C212WabChartUI(parentDiv: HTMLElement) {
 
   const wabchart = new C212WabChartUI(mainContainer as HTMLDivElement);
   wabchart.Init();
-  top.wa = wabchart
 }

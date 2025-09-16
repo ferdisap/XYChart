@@ -10,6 +10,7 @@ import { importSvg, show } from "../../utils";
 import { CN235WabCalculator } from "../wab_cn_235_calculator";
 import { TooltipWeb } from "../../Tooltip";
 import { DefConfig, line } from "../../Config";
+import { C212WabCalculator } from "../wab_c_212_calculator";
 
 // function stylingContainerDiv(containerDiv: HTMLDivElement) {
 //   containerDiv.parentElement!.style.position = 'relative';
@@ -53,7 +54,7 @@ export class Modal {
   wabInputsUi: Array<UIWabInput>
   wabInputsUiID: Array<string>
 
-  calculator: typeof CN235WabCalculator | typeof WabCalculator;
+  calculator: typeof CN235WabCalculator| typeof C212WabCalculator | typeof WabCalculator;
   chart: XYChart;
   macAxis: Axis;
   rightAxis: Axis;
@@ -67,8 +68,9 @@ export class Modal {
     this.tabDiv = AddDiv(this.containerDiv, 'modal-tab-container');
     this.contentDiv = AddDiv(this.containerDiv, 'modal-content-container');
 
-    if (calculator === calculatorType.CN235WabCalculator) this.calculator = CN235WabCalculator;
-    else this.calculator = WabCalculator;
+    this.calculator = (calculator === calculatorType.CN235WabCalculator ? CN235WabCalculator : (
+      calculator === calculatorType.C212WabCalculator ? C212WabCalculator : WabCalculator
+    ));
     this.chart = chart;
     this.macAxis = macAxis;
     this.rightAxis = rightAxis;

@@ -1,7 +1,7 @@
 import { AddButton, AddDiv, CreateDomElement } from "../Calculator/ui/domutils";
 import modalShowHideBtn from '../../assets/chart-line-svgrepo-com.svg?url';
 import letterEx from '../../assets/my-font-example-logo.svg?url';
-import CN235_example_weight_data from '../Example/CN235_example_weight_data.wab?raw';
+import CN235_example_weight_data from '../Example/CN235_example_weight_data.awb?raw';
 import { create_x_ratio_end_to_end, importSvg, randStr, spread_number_to_range } from "../utils";
 import { TooltipWeb } from "../Tooltip";
 import { Modal } from "../Calculator/ui/Modal";
@@ -272,7 +272,7 @@ function makeMZFWEnvelope(indexUnitAxis: Axis, weightAxis: Axis, configPoint: po
 class CN235WabChartUI extends WabChartUI {
   _version: string = "v1.0.0";
   _owner:string = "ferdisaptoko";
-  _mail: "ferdisaptoko@gmail.com"
+  _mail = "ferdisaptoko@gmail.com";
   constructor(parentDiv: HTMLDivElement) {
     super(parentDiv);
   }
@@ -396,4 +396,5 @@ export function Create_CN235WabChartUI(parentDiv: HTMLElement) {
   
   const wabchart = new CN235WabChartUI(mainContainer as HTMLDivElement);
   wabchart.Init();
+  top.wa = wabchart;
 }

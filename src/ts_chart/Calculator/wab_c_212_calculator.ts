@@ -1,19 +1,18 @@
 import { Axis, GetCoordByValue } from "../Axis";
 import { align, position } from "../Config";
 import { Point } from "../Point";
-import { formula_cgarm_from_IndexUnit, formula_index_unit_cn_235, formula_mac_cn_235 } from "../wab/formula";
+import { formula_cgarm_from_IndexUnit, formula_index_unit_cn_235, formula_mac_c_212 } from "../wab/formula";
 import { XYChart } from "../XYChart";
 import { DefConfig } from "../Config";
 import { WabCalculator, weight } from "./wab_calculator";
 
-export class CN235WabCalculator extends WabCalculator {
+export class C212WabCalculator extends WabCalculator {
 
   constructor() {
     super();
   }
 
   DrawToChart(chart: XYChart, weightAxis: Axis, indexUnitAxis: Axis, macAxis: Axis) {
-    // DrawToChart(chart: XYChart, weightAxis: Axis, indexUnitAxis: Axis) {
     const createdPoint1 = [
       this.generatePoint("MEW", this._MEW, weightAxis, indexUnitAxis),
       this.generatePoint("BEW", this._BEW, weightAxis, indexUnitAxis),
@@ -47,7 +46,7 @@ export class CN235WabCalculator extends WabCalculator {
 
   private generatePoint(name: string, weightData: weight | null, weightAxis: Axis, indexUnitAxis: Axis): Point | null {
     if (weightData) {
-      const WMac = (formula_mac_cn_235(weightData.arm.value));
+      const WMac = (formula_mac_c_212(weightData.arm.value));
       const WIndexUnit = formula_index_unit_cn_235(WMac, weightData.value);
 
       const indexUnitPosition = indexUnitAxis.position;
@@ -81,7 +80,6 @@ export class CN235WabCalculator extends WabCalculator {
     return formula_cgarm_from_IndexUnit(indexUnit, weight)
   }
   Convert_To_Mac(cgarm:number):number{
-    return formula_mac_cn_235(cgarm)
+    return formula_mac_c_212(cgarm)
   }
-
 }

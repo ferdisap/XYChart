@@ -100,7 +100,8 @@ export function add_item(weight: weight, item: weight, plus:boolean = true): wei
 
 export const calculatorType = {
   "WabCalculator" : 0,
-  "CN235WabCalculator": 1
+  "CN235WabCalculator": 1,
+  "C212WabCalculator": 2
 }
 
 export class WabCalculator {
@@ -127,12 +128,12 @@ export class WabCalculator {
     this._TOW = null;
     this._TXW = null;
 
+    this.firstPoint = null;
     this.configPoint = DefConfig.point;
     this.configLine = DefConfig.line;
     this.configTooltipFont = DefConfig.font;
   }
 
-  // AddWeight(data: weight|Array<weight>, type: number): weight | null {
   SetWeight(data: weight, type: number): weight | null {
     if (data.name && data.value && data.unit && data.arm) {
       switch (type) {

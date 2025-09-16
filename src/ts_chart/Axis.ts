@@ -20,9 +20,10 @@ import { Text } from "konva/lib/shapes/Text";
   }
   filter(750, [1000,900,800,700,600].reverse()); filter(750, [1000,900,800,700,600])
  */
-export function filterPoints(gridPoints: Array<Point>, value: number) {
+export function filterPoints(gridPoints: Array<Point>, value: number) :Array<Point>{
   return gridPoints.filter((e: Point, i: number, gdpts: Array<Point>) => {
-    return ((e.value! > value && (gdpts[i + 1] && gdpts[i + 1].value! < value)) || (e.value! < value && (gdpts[i - 1] && gdpts[i - 1].value! > value))) ||
+    return value === e.value ||
+      ((e.value! > value && (gdpts[i + 1] && gdpts[i + 1].value! < value)) || (e.value! < value && (gdpts[i - 1] && gdpts[i - 1].value! > value))) ||
       ((e.value! > value && (gdpts[i - 1] && gdpts[i - 1].value! < value)) || (e.value! < value && (gdpts[i + 1] && gdpts[i + 1].value! > value)))
   })
 }
@@ -54,7 +55,7 @@ export function CreatePointByValue(targetAxis: Axis, value: number) {
 
 export function GetCoordByValue(targetAxis: Axis, value: number): coord {
   const filterredPoints = filterPoints(targetAxis.gridPoints, value);
-  if (filterredPoints.length) {
+  if (filterredPoints.length > 1) {
     const ratioBetweenPoint = get_ratio_between_two_value(value, filterredPoints[0].value!, filterredPoints[1].value!);
 
     const lengthBeetweenTwoPoint_x = filterredPoints[1].x - filterredPoints[0].x;
@@ -63,7 +64,14 @@ export function GetCoordByValue(targetAxis: Axis, value: number): coord {
     const y = filterredPoints[0].y + (lengthBeetweenTwoPoint_y * ratioBetweenPoint)
 
     return { x: x, y: y };
-  } else {
+  }
+  else if (filterredPoints.length === 1){
+    return {
+      x: filterredPoints[0].x,
+      y: filterredPoints[0].y
+    }
+  } 
+  else {
     return {
       x: targetAxis.point1.x,
       y: targetAxis.point1.y

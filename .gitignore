@@ -1,7 +1,5 @@
 dist
-dist/*
 node_modules
-node_modules/*
 # /.phpunit.cache
 # /node_modules
 # /public/build

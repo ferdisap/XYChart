@@ -5,6 +5,7 @@ export interface coord {
 
 export const formulaType = {
   'indexUnit_CN235': 1,
+  'indexUnit_C212': 2,
 }
 
 export interface position {

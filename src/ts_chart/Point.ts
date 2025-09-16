@@ -192,7 +192,7 @@ export class Point {
 
   nextPoint: Point | null;
 
-  tooltip: Tooltip
+  tooltip: Tooltip | null
 
   constructor(x: number, y: number, config: point | null) {
     this.x = x;
@@ -202,6 +202,8 @@ export class Point {
     this.value = config ? (config.value ?? 0) : 0;
     this.unit = config ? (config.unit ?? '') : '';
     this.nextPoint = null
+    this.tooltip = null;
+    this.dot = null;
 
     if (config) {
       if (config.type === pointType.circle) {
